@@ -3,6 +3,7 @@ package com.example.mynotes.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynotes.data.models.Note
 import com.example.mynotes.databinding.NotesContainerBinding
@@ -40,7 +41,9 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
     }
 
     fun setData(note: List<Note>) {
+        val noteDiffUtil = NoteDiffUtil(notesList,note)
+        val resultDiffutil = DiffUtil.calculateDiff(noteDiffUtil)
         this.notesList = note
-        notifyDataSetChanged()
+        resultDiffutil.dispatchUpdatesTo(this)
     }
 }

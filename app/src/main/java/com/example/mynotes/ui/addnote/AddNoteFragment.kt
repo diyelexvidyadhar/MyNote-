@@ -1,10 +1,12 @@
 package com.example.mynotes.ui.addnote
 
+
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.mynotes.R
 import com.example.mynotes.data.models.Note
 import com.example.mynotes.data.viewmodel.NoteViewModel
@@ -37,6 +39,7 @@ class AddNoteFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_add)
             insertDataToDb()
+        findNavController().navigate(R.id.AddNoteFragment_to_NotesFragment)
         return super.onOptionsItemSelected(item)
     }
 
@@ -60,6 +63,9 @@ class AddNoteFragment : Fragment() {
         )
         mNoteViewModel.addNote(newNote)
         Toast.makeText(context, "Note saved successfully", Toast.LENGTH_SHORT).show()
+    }
+    private fun updateData(){
+
     }
 
 }

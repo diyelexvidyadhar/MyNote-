@@ -9,9 +9,12 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/notes_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        android:background="@drawable/background_notes_container">
 
         <TextView
             android:id="@+id/note_tite"
@@ -20,17 +23,21 @@
             android:fontFamily="@font/ubuntu_bold"
             android:gravity="center"
             android:text="@{note.title}"
-            android:padding="8dp"
-            tools:text="Note 1" />
+            android:layout_margin="8dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:includeFontPadding="false"/>
 
         <TextView
             android:id="@+id/note_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ubuntu_medium"
+            android:fontFamily="@font/ubuntu_regular"
             android:gravity="center"
             android:text="@{note.description}"
-            android:padding="8dp"
-            tools:text="Note description" />
+            android:layout_margin="8dp"
+            android:textSize="13sp"
+            android:includeFontPadding="false"
+            android:textColor="@color/white" />
     </LinearLayout>
 </layout>
